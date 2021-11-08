@@ -20,11 +20,11 @@ searchinputEl.addEventListener('blur', function() {
 const badgeEl = document.querySelector("header .badges")
 // To Upward Home
 const toTopEl = document.querySelector("#to-top")
-// toTopEl.addEventListener('click', ()=> {
-//     gsap.to(window, .7, {
-//         scrollTo: 0
-//     })
-// })
+toTopEl.addEventListener('click', ()=> {
+    gsap.to(window, .7, {
+        scrollTo: 0
+    })
+})
 
 // window.addEventListener('scroll', function() {
 //     console.log('Scroll')
@@ -149,4 +149,20 @@ spyEls.forEach(function (spyEl) {
         .addTo(new ScrollMagic.Controller()); //컨트롤러 장면 할당
 })
 
-
+//AWARDS SECTION 가로 슬라이더 추가
+new Swiper('.awards .swiper-container', {
+    // direction: 'horizontal', // 수평 슬라이드 : 기본값
+    autoplay: true,
+    loop: true,
+    spaceBetween: 30,
+    slidesPerView: 5,
+    navigation: {
+      prevEl: '.awards .swiper-prev',
+      nextEl: '.awards .swiper-next'
+    }
+  });
+  
+  // 당해년도 가져오기
+  const thisYear = document.querySelector('.this-year');
+  thisYear.textContent = new Date().getFullYear();
+  
